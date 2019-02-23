@@ -1,0 +1,21 @@
+{
+  "name": "merkuebungfgi",
+  "version": "1.0.0",
+  "description": "Ein Generator für FGI damit er seine Merkfähigkeit verbessern kann und generell meine Wenigkeit mehr huldigt!",
+  "main": "FunktionsSchilder.js",
+  "scripts": {
+    "build00":"browserify FunktionsSchilder.js -o bundle.js",
+    "build01":"browserify schildAnpassen.js -o bundle.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dawinartor/MerkUebungFGI.git"
+  },
+  "author": "David Melamed",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dawinartor/MerkUebungFGI/issues"
+  },
+  "homepage": "https://github.com/Dawinartor/MerkUebungFGI#readme"
+}
