@@ -57,9 +57,9 @@ class nummernschild {
         landBuchstabe.style.color = 'white';
         landBuchstabe.style.fontFamily = 'sans-serif';
         landBuchstabe.style.fontSize = 820 + '%';
-        landBuchstabe.innerHTML = "D";//Make change aviable with a funtion for all 12 European-countries.
+        landBuchstabe.innerHTML = ofFuSchilder.getCountryletter();//Make change aviable with a funtion for all 12 European-countries.
         //Add town letter to weißeInnenflaeche:
-        
+
 
     }
 }

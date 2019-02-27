@@ -97,9 +97,14 @@ module.exports.getRandomLetter = function randomLetter(){
         }
 }
 
-function landZeichen(){
-
+module.exports.getCountryletter = function landZeichen(){
+    const kuerzelLaenderEU = ["D","B","F","I","L","M","A","H","E","S","L","BG","DK","EST","FIN","GR","IRL","HR","LV","LT","NL","PL","RO","SK","SLO","CZ","CY"];
+    let euLandZero = 0, euLandLast = kuerzelLaenderEU.length;
+    let zufaelligerBuchstabenWert = Math.floor(Math.random() * (euLandLast - euLandZero)) + euLandZero;
+    console.log(kuerzelLaenderEU[zufaelligerBuchstabenWert]);
+    return kuerzelLaenderEU[zufaelligerBuchstabenWert];
 }
+
 
 
 //Function to check how often appear signs with only one number on it:
@@ -108,7 +113,7 @@ function erstelleSchild(){
     var nummernSchild = "FD " + randomLetter() + randomLetter() + " " + letzterWert;
     if (letzterWert <= 9 ){
         schild_mit_ein_ziffer++;
-        console.error("Schild Nummer: " + schild_mit_ein_ziffer + " Das Schild -> " + nummernSchild);
+        console.error("Schild Nummer: " + schild_mit_ein_ziffer + "Das Schild -> " + nummernSchild);
     } else {
         schild_mit_ein_ziffer += 0;
         console.log(nummernSchild);
@@ -179,8 +184,9 @@ class nummernschild {
         landBuchstabe.style.color = 'white';
         landBuchstabe.style.fontFamily = 'sans-serif';
         landBuchstabe.style.fontSize = 820 + '%';
-        landBuchstabe.innerHTML = "D";//Make change aviable with a funtion for all 12 European-countries.
-        
+        landBuchstabe.innerHTML = ofFuSchilder.getCountryletter();//Make change aviable with a funtion for all 12 European-countries.
+        //Add town letter to weißeInnenflaeche:
+
 
     }
 }
