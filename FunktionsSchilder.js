@@ -96,6 +96,11 @@ module.exports.getRandomLetter = function randomLetter(){
         }
 }
 
+function landZeichen(){
+
+}
+
+
 //Function to check how often appear signs with only one number on it:
 function erstelleSchild(){
     var letzterWert = randomNumber();
@@ -108,5 +113,7 @@ function erstelleSchild(){
         console.log(nummernSchild);
     }
 }
+
+
 
 
