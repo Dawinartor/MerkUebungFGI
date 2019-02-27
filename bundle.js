@@ -135,7 +135,8 @@ const unionZeichen = document.createElement("div");//contents YellowStars pictur
 const landBuchstabe = document.createElement("h1");
 const stadtKennungKontainer = document.createElement("div");
 const stadtKennungBuchstabe = document.createElement("h1");
-const aUhU = document.createElement("div");
+const aUhUcontainer = document.createElement("div");
+const aUhUsiegel = document.createElement("h1");
 const buchstabenKennung = document.createElement("div");
 const nummer = document.createElement("div");
 //Append to document:
@@ -144,7 +145,8 @@ schwarzerRahmen.appendChild(weißeInnenflaeche);
 weißeInnenflaeche.appendChild(blauesLandZeichen);
 weißeInnenflaeche.appendChild(stadtKennungKontainer);
 stadtKennungKontainer.appendChild(stadtKennungBuchstabe);
-weißeInnenflaeche.appendChild(aUhU);
+weißeInnenflaeche.appendChild(aUhUcontainer);
+aUhUcontainer.appendChild(aUhUsiegel);
 weißeInnenflaeche.appendChild(blauesLandZeichen);
 blauesLandZeichen.appendChild(unionZeichen);
 blauesLandZeichen.appendChild(landBuchstabe);
@@ -170,7 +172,8 @@ class nummernschild {
         weißeInnenflaeche.style.borderRadius = 3 + '%';
         //Styling of the country-tag:
         blauesLandZeichen.style.position = 'relative';
-        blauesLandZeichen.style.bottom = 300 + 'px';
+        //blauesLandZeichen.style.cssFloat = 'left';
+        blauesLandZeichen.style.bottom = 321 + 'px';
         blauesLandZeichen.style.width =  120 + 'px';
         blauesLandZeichen.style.height = 300 + 'px';
         blauesLandZeichen.style.backgroundColor = 'blue';
@@ -198,19 +201,27 @@ class nummernschild {
         stadtKennungKontainer.style.left = 120 + 'px';
         stadtKennungKontainer.style.width = 170 + 'px';
         stadtKennungKontainer.style.height = 300 + 'px';
-        stadtKennungKontainer.style.backgroundColor = 'red';
+        stadtKennungKontainer.style.backgroundColor = 'tomato';
         //Add letter to townLetter-Container:
         stadtKennungBuchstabe.style.position = 'relative';
         stadtKennungBuchstabe.style.cssFloat = 'left';
         stadtKennungBuchstabe.style.bottom = 50 + 'px';
-        stadtKennungBuchstabe.style.left = 15 + 'px';
+        stadtKennungBuchstabe.style.left = 10 + 'px';
         stadtKennungBuchstabe.style.color = 'black' ;
         stadtKennungBuchstabe.style.fontFamily = 'sans-serif';
         stadtKennungBuchstabe.style.fontSize = 1000 + '%';
         stadtKennungBuchstabe.style.height = 200 + 'px';
         stadtKennungBuchstabe.style.width = 140 + 'px';
         stadtKennungBuchstabe.innerHTML = ofFuSchilder.getRandomLetter();
-    
+        //Add Container for HuAu circles:
+        /*
+        aUhUcontainer.style.position = 'relative';
+        aUhUcontainer.style.cssFloat = 'left';
+        aUhUcontainer.style.left = 250 + 'px';
+        aUhUcontainer.style.width = 170 + 'px';
+        aUhUcontainer.style.height = 300 + 'px';
+        aUhUcontainer.style.backgroundColor = 'cyan';
+        */
         
     }
 }
