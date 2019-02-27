@@ -98,10 +98,11 @@ module.exports.getRandomLetter = function randomLetter(){
 
 module.exports.getCountryletter = function landZeichen(){
     const kuerzelLaenderEU = ["D","B","F","I","L","M","A","H","E","S","L","BG","DK","EST","FIN","GR","IRL","HR","LV","LT","NL","PL","RO","SK","SLO","CZ","CY"];
-    let euLandZero = 0, euLandLast = kuerzelLaenderEU.length;
+    const kuerzelLaenderEU01 = ["D","B","F","I","L","M","A","H","E","S","L"];
+    let euLandZero = 0, euLandLast = kuerzelLaenderEU01.length;
     let zufaelligerBuchstabenWert = Math.floor(Math.random() * (euLandLast - euLandZero)) + euLandZero;
-    console.log(kuerzelLaenderEU[zufaelligerBuchstabenWert]);
-    return kuerzelLaenderEU[zufaelligerBuchstabenWert];
+    console.log(kuerzelLaenderEU01[zufaelligerBuchstabenWert]);
+    return kuerzelLaenderEU01[zufaelligerBuchstabenWert];
 }
 
 
