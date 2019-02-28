@@ -182,7 +182,8 @@ class nummernschild {
     constructor(){
         //Styling of black borderbackground sign:
         schwarzerRahmen.style.position = 'absolute';
-        //schwarzerRahmen.style.left = 300 + 'px'; //if sign will move -> every div will move too.
+        schwarzerRahmen.style.top = 300 + 'px';
+        schwarzerRahmen.style.left = 600 + 'px'; //if sign will move -> every div will move too.
         schwarzerRahmen.style.width = 800 + 'px';
         schwarzerRahmen.style.height = 350 + 'px';
         schwarzerRahmen.style.backgroundColor = 'black';
@@ -320,10 +321,10 @@ class nummernschild {
         autohausSchriftzug.style.height = 15 + 'px';
         autohausSchriftzug.style.width = 700 + 'px';
         autohausSchriftzug.style.color = 'yellow';
+        autohausSchriftzug.style.textAlign = 'center';
         const autoheuser = ["Autohaus Utbremen Schmidt + Koch GmbH","Autohaus Keyssler GmbH & Co. KG","Autohaus Fritz GmbH","Woltmann Italo GmbH","Autohaus Neustadt Schmidt + Koch GmbH","AUTO DOMICIL BREMEN","Stern Autohaus Bremen","Autohaus Lemke GmbH","Dello Bremen am Flughafen","Carsburg Group","Autohaus Brandt Stuhr GmbH","Autohaus Schneider GmbH","Autohaus Weider + Sohn GmbH","Autohaus Reinsch GmbH","Autohaus Hinrichsen GmbH","Autohaus A&K Bremen","Auto-Müssemann GmbH","Autohaus Carsten Abbes","Autohaus Schmidtke Gmbh","Dello Bremen Georg-Bitter-Quartier","SIEGFRIED ISBRECHT Automobile...seit 1978! Kraftfahrzeug-Meisterbetrieb für alle Marken!","Becker & Vit - Automobile GmbH","DAT AUTOHUS AG","Autoservice Walter GmbH","Point S Kfz.-Meisterbetrieb Christoph Bremer","Autohaus Werner GmbH","Novo Automobile","Bobrink-Carstream GmbH Bremen Nord","Scar Automobile","Bobrink & Co. GmbH","Rivkin Automobile & Pflege GmbH und KFZ-Werkstatt"];
         console.log(autoheuser.length);
         autohausSchriftzug.innerHTML = autoheuser[ofFuSchilder.getAutohaus()];
-        autohausSchriftzug.style.textAlign = 'center';
         //Add a Class that will output a new Object of shown sign to create a check{N}play-Prompt
     }
 }
@@ -331,7 +332,7 @@ class nummernschild {
 function aktualisiereSchild(){
     let schild = new nummernschild(); 
 }
-
-setInterval(aktualisiereSchild, 100);
+var schild = new nummernschild();
+setInterval(aktualisiereSchild, 12000);
 
 },{"./FunktionsSchilder.js":1}]},{},[2]);
