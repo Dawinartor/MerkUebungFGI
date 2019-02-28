@@ -11,7 +11,7 @@ module.exports.getRandomNumber = function randomNumber(){//between 1 and 9999
 
 //Function to get random Letter:
 module.exports.getRandomLetter = function randomLetter(){
-    let anfangAlphaBet = 1, endeAlphaBet = 26;//Vom ersten Buchstaben bis zum letzten Buchstaben des deutschen Alphabets
+    let anfangAlphaBet = 1, endeAlphaBet = 25;//Vom ersten Buchstaben bis zum letzten Buchstaben des deutschen Alphabets (Ohne "W").
     let zufaelligerBuchstabenWert = Math.floor(Math.random() * (endeAlphaBet - anfangAlphaBet)) + anfangAlphaBet;
     //With switch-case get a Letter:
     switch (zufaelligerBuchstabenWert){
@@ -81,9 +81,9 @@ module.exports.getRandomLetter = function randomLetter(){
         case 22:
          let vV = "V";
          return vV;
-        case 23:
-         let wW = "W";
-         return wW;
+        case 23: //Insteat of W
+         let oeOE = "Ö";
+         return oeOE;
         case 24:
          let xX = "X";
          return xX;

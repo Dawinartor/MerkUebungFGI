@@ -12,7 +12,7 @@ module.exports.getRandomNumber = function randomNumber(){//between 1 and 9999
 
 //Function to get random Letter:
 module.exports.getRandomLetter = function randomLetter(){
-    let anfangAlphaBet = 1, endeAlphaBet = 26;//Vom ersten Buchstaben bis zum letzten Buchstaben des deutschen Alphabets
+    let anfangAlphaBet = 1, endeAlphaBet = 25;//Vom ersten Buchstaben bis zum letzten Buchstaben des deutschen Alphabets (Ohne "W").
     let zufaelligerBuchstabenWert = Math.floor(Math.random() * (endeAlphaBet - anfangAlphaBet)) + anfangAlphaBet;
     //With switch-case get a Letter:
     switch (zufaelligerBuchstabenWert){
@@ -82,9 +82,9 @@ module.exports.getRandomLetter = function randomLetter(){
         case 22:
          let vV = "V";
          return vV;
-        case 23:
-         let wW = "W";
-         return wW;
+        case 23: //Insteat of W
+         let oeOE = "Ö";
+         return oeOE;
         case 24:
          let xX = "X";
          return xX;
@@ -136,7 +136,8 @@ const landBuchstabe = document.createElement("h1");
 const stadtKennungKontainer = document.createElement("div");
 const stadtKennungBuchstabe = document.createElement("h1");
 const aUhUcontainer = document.createElement("div");
-const aUhUsiegel = document.createElement("h1");
+const aUsiegel = document.createElement("div");
+const hUsiegel = document.createElement("div");
 const buchstabenKennung = document.createElement("div");
 const nummer = document.createElement("div");
 //Append to document:
@@ -146,7 +147,8 @@ weißeInnenflaeche.appendChild(blauesLandZeichen);
 weißeInnenflaeche.appendChild(stadtKennungKontainer);
 stadtKennungKontainer.appendChild(stadtKennungBuchstabe);
 weißeInnenflaeche.appendChild(aUhUcontainer);
-aUhUcontainer.appendChild(aUhUsiegel);
+aUhUcontainer.appendChild(aUsiegel);
+aUhUcontainer.appendChild(hUsiegel);
 weißeInnenflaeche.appendChild(blauesLandZeichen);
 blauesLandZeichen.appendChild(unionZeichen);
 blauesLandZeichen.appendChild(landBuchstabe);
@@ -157,6 +159,7 @@ class nummernschild {
     constructor(){
         //Styling of black borderbackground sign:
         schwarzerRahmen.style.position = 'absolute';
+        //schwarzerRahmen.style.left = 300 + 'px'; //if sign will move -> every div will move too.
         schwarzerRahmen.style.width = 800 + 'px';
         schwarzerRahmen.style.height = 350 + 'px';
         schwarzerRahmen.style.backgroundColor = 'black';
@@ -172,8 +175,9 @@ class nummernschild {
         weißeInnenflaeche.style.borderRadius = 3 + '%';
         //Styling of the country-tag:
         blauesLandZeichen.style.position = 'relative';
-        //blauesLandZeichen.style.cssFloat = 'left';
-        blauesLandZeichen.style.bottom = 321 + 'px';
+        blauesLandZeichen.style.cssFloat = 'left'; //Please check what happens with div's while Float!
+        blauesLandZeichen.style.bottom = 300 + 'px';
+        blauesLandZeichen.style.right = 265 + 'px'; //Special move
         blauesLandZeichen.style.width =  120 + 'px';
         blauesLandZeichen.style.height = 300 + 'px';
         blauesLandZeichen.style.backgroundColor = 'blue';
@@ -199,7 +203,7 @@ class nummernschild {
         //Add Container for townLetter to weißeInnenflaeche:
         stadtKennungKontainer.style.position = 'relative';
         stadtKennungKontainer.style.left = 120 + 'px';
-        stadtKennungKontainer.style.width = 170 + 'px';
+        stadtKennungKontainer.style.width = 150 + 'px';
         stadtKennungKontainer.style.height = 300 + 'px';
         stadtKennungKontainer.style.backgroundColor = 'tomato';
         //Add letter to townLetter-Container:
@@ -214,18 +218,21 @@ class nummernschild {
         stadtKennungBuchstabe.style.width = 140 + 'px';
         stadtKennungBuchstabe.innerHTML = ofFuSchilder.getRandomLetter();
         //Add Container for HuAu circles:
-        /*
         aUhUcontainer.style.position = 'relative';
         aUhUcontainer.style.cssFloat = 'left';
-        aUhUcontainer.style.left = 250 + 'px';
-        aUhUcontainer.style.width = 170 + 'px';
+        aUhUcontainer.style.bottom = 300 + 'px';
+        aUhUcontainer.style.left = 130 + 'px';
+        aUhUcontainer.style.width = 125 + 'px';
         aUhUcontainer.style.height = 300 + 'px';
         aUhUcontainer.style.backgroundColor = 'cyan';
-        */
         
     }
 }
 
-var nummernschild01 = new nummernschild();
+function aktualisiereSchild(){
+    let schild = new nummernschild(); 
+}
+
+setInterval(aktualisiereSchild, 50);
 
 },{"./FunktionsSchilder.js":1}]},{},[2]);
