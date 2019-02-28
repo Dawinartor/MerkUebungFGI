@@ -9,6 +9,18 @@ module.exports.getRandomNumber = function randomNumber(){//between 1 and 9999
     return zufaelligeZahl;
 }
 
+module.exports.getTuevNummber = function TuevNummber(){
+    let minTUEV = 0, maxTUEV = 6;
+    let randomZahl = Math.floor(Math.random() * (maxTUEV - minTUEV)) + minTUEV;
+    return randomZahl;
+}
+
+module.exports.getAuNummber = function AuNummber(){
+    let minAU = 0, maxAU = 3;
+    let randomZahl = Math.floor(Math.random() * (maxAU - minAU)) + minAU;
+    return randomZahl;
+}
+
 //Function to get random Letter:
 module.exports.getRandomLetter = function randomLetter(){
     let anfangAlphaBet = 1, endeAlphaBet = 25;//Vom ersten Buchstaben bis zum letzten Buchstaben des deutschen Alphabets (Ohne "W").

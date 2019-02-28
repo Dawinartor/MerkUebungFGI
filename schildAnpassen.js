@@ -74,8 +74,8 @@ class nummernschild {
         landBuchstabe.innerHTML = ofFuSchilder.getCountryletter();
         //Add Container for townLetter to weißeInnenflaeche:
         stadtKennungKontainer.style.position = 'relative';
-        stadtKennungKontainer.style.left = 120 + 'px';
-        stadtKennungKontainer.style.width = 150 + 'px';
+        stadtKennungKontainer.style.left = 115 + 'px';
+        stadtKennungKontainer.style.width = 145 + 'px';
         stadtKennungKontainer.style.height = 300 + 'px';
         stadtKennungKontainer.style.backgroundColor = 'tomato';
         //Add letter to townLetter-Container:
@@ -93,13 +93,44 @@ class nummernschild {
         aUhUcontainer.style.position = 'relative';
         aUhUcontainer.style.cssFloat = 'left';
         aUhUcontainer.style.bottom = 300 + 'px';
-        aUhUcontainer.style.left = 130 + 'px';
-        aUhUcontainer.style.width = 125 + 'px';
+        aUhUcontainer.style.left = 120 + 'px';
+        aUhUcontainer.style.width = 120 + 'px';
         aUhUcontainer.style.height = 300 + 'px';
         aUhUcontainer.style.backgroundColor = 'cyan';
-        //HuAu container will contain two cicles 
-        aUsiegel
-        
+        //First circle -> Au <- for HuAu-Container:
+        aUsiegel.style.position = 'relative';
+        aUsiegel.style.cssFloat = 'left'; //Optional
+        aUsiegel.style.top = 25 + 'px';
+        aUsiegel.style.left = 10 + 'px';
+        aUsiegel.style.width = 100 + 'px';
+        aUsiegel.style.height = 100 + 'px';
+        const tuevPlakette = ["Hu_Au/HauptuntersuchungPlakette/TUEV_14.png","Hu_Au/HauptuntersuchungPlakette/TUEV_15.png","Hu_Au/HauptuntersuchungPlakette/TUEV_16.png","Hu_Au/HauptuntersuchungPlakette/TUEV_17.png","Hu_Au/HauptuntersuchungPlakette/TUEV_18.png","Hu_Au/HauptuntersuchungPlakette/TUEV_19.png","Hu_Au/HauptuntersuchungPlakette/TUEV_20.png"];
+        aUsiegel.style.backgroundImage = 'url(' + tuevPlakette[ofFuSchilder.getTuevNummber()] + ')'; 
+        aUsiegel.style.backgroundSize = 425 + '%';
+        aUsiegel.style.backgroundPositionX = -165 + 'px';
+        aUsiegel.style.backgroundPositionY = -90 + 'px';
+        aUsiegel.style.backgroundRepeat = 'no-repeat';
+        //Second circle -> Hu <- for HuAu-Container:
+        hUsiegel.style.position = 'relative';
+        hUsiegel.style.cssFloat = 'left'; //Optional
+        hUsiegel.style.top = 75 + 'px';
+        hUsiegel.style.left = 7 + 'px';
+        hUsiegel.style.width = 100 + 'px';
+        hUsiegel.style.height = 100 + 'px';
+        const auPlakette = ["Hu_Au/AuPlakette/Bayern00.png","Hu_Au/AuPlakette/Bayern01.png","Hu_Au/AuPlakette/Bayern02.png","Hu_Au/AuPlakette/Bayern03.png",]
+        hUsiegel.style.backgroundImage = 'url(' + auPlakette[ofFuSchilder.getAuNummber()] + ')'; 
+        hUsiegel.style.backgroundSize = 1500 + '%';
+        hUsiegel.style.backgroundPositionX = -700 + 'px';
+        hUsiegel.style.backgroundPositionY = -370 + 'px';
+        hUsiegel.style.backgroundRepeat = 'no-repeat';
+        //Add Container for last Letters befor numbers come:
+        buchstabenKennung.style.
+        buchstabenKennung.style.
+        buchstabenKennung.style.
+        buchstabenKennung.style.
+        buchstabenKennung.style.
+        buchstabenKennung.style.
+        buchstabenKennung.style.
     }
 }
 
@@ -107,4 +138,4 @@ function aktualisiereSchild(){
     let schild = new nummernschild(); 
 }
 
-setInterval(aktualisiereSchild, 50);
+setInterval(aktualisiereSchild, 100);
