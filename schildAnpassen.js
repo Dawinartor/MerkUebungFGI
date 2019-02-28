@@ -1,6 +1,7 @@
 //create all elements:
 const ofFuSchilder = require('./FunktionsSchilder.js');
 const schwarzerRahmen = document.createElement("div");
+const autohausSchriftzug = document.createElement("p");
 const weißeInnenflaeche = document.createElement("div");
 const blauesLandZeichen = document.createElement("div");
 const unionZeichen = document.createElement("div");//contents YellowStars picture
@@ -10,11 +11,14 @@ const stadtKennungBuchstabe = document.createElement("h1");
 const aUhUcontainer = document.createElement("div");
 const aUsiegel = document.createElement("div");
 const hUsiegel = document.createElement("div");
-const buchstabenKennung = document.createElement("div");
-const nummer = document.createElement("div");
+const buchstabenKennungContainer = document.createElement("div");
+const buchstabenKennung = document.createElement("h1");
+const nummerContainer = document.createElement("div");
+const nummer = document.createElement("h1");
 //Append to document:
 document.body.append(schwarzerRahmen);
 schwarzerRahmen.appendChild(weißeInnenflaeche);
+schwarzerRahmen.appendChild(autohausSchriftzug);
 weißeInnenflaeche.appendChild(blauesLandZeichen);
 weißeInnenflaeche.appendChild(stadtKennungKontainer);
 stadtKennungKontainer.appendChild(stadtKennungBuchstabe);
@@ -24,8 +28,10 @@ aUhUcontainer.appendChild(hUsiegel);
 weißeInnenflaeche.appendChild(blauesLandZeichen);
 blauesLandZeichen.appendChild(unionZeichen);
 blauesLandZeichen.appendChild(landBuchstabe);
-weißeInnenflaeche.appendChild(buchstabenKennung);
-weißeInnenflaeche.appendChild(nummer);
+weißeInnenflaeche.appendChild(buchstabenKennungContainer);
+buchstabenKennungContainer.appendChild(buchstabenKennung);
+weißeInnenflaeche.appendChild(nummerContainer);
+nummerContainer.appendChild(nummer);
 //The whole numbersign
 class nummernschild {
     constructor(){
@@ -77,7 +83,7 @@ class nummernschild {
         stadtKennungKontainer.style.left = 115 + 'px';
         stadtKennungKontainer.style.width = 145 + 'px';
         stadtKennungKontainer.style.height = 300 + 'px';
-        stadtKennungKontainer.style.backgroundColor = 'tomato';
+        stadtKennungKontainer.style.backgroundColor = 'white';
         //Add letter to townLetter-Container:
         stadtKennungBuchstabe.style.position = 'relative';
         stadtKennungBuchstabe.style.cssFloat = 'left';
@@ -96,7 +102,7 @@ class nummernschild {
         aUhUcontainer.style.left = 120 + 'px';
         aUhUcontainer.style.width = 120 + 'px';
         aUhUcontainer.style.height = 300 + 'px';
-        aUhUcontainer.style.backgroundColor = 'cyan';
+        aUhUcontainer.style.backgroundColor = 'white';
         //First circle -> Au <- for HuAu-Container:
         aUsiegel.style.position = 'relative';
         aUsiegel.style.cssFloat = 'left'; //Optional
@@ -124,13 +130,56 @@ class nummernschild {
         hUsiegel.style.backgroundPositionY = -370 + 'px';
         hUsiegel.style.backgroundRepeat = 'no-repeat';
         //Add Container for last Letters befor numbers come:
-        buchstabenKennung.style.
-        buchstabenKennung.style.
-        buchstabenKennung.style.
-        buchstabenKennung.style.
-        buchstabenKennung.style.
-        buchstabenKennung.style.
-        buchstabenKennung.style.
+        buchstabenKennungContainer.style.position = 'relative';
+        buchstabenKennungContainer.style.cssFloat = 'left';
+        buchstabenKennungContainer.style.bottom = 300 + 'px';
+        buchstabenKennungContainer.style.left = 0 + 'px' ;
+        buchstabenKennungContainer.style.height = 300 + 'px';
+        buchstabenKennungContainer.style.width = 145 + 'px';
+        buchstabenKennungContainer.style.backgroundColor = 'white';
+        //Add Letter to buchstabenKennungContainer:
+        buchstabenKennung.style.position = 'relative';
+        buchstabenKennung.style.cssFloat = 'left';
+        buchstabenKennung.style.bottom = 50 + 'px';
+        buchstabenKennung.style.left = 10 + 'px';
+        buchstabenKennung.style.color = 'black' ;
+        buchstabenKennung.style.fontFamily = 'sans-serif';
+        buchstabenKennung.style.fontSize = 1000 + '%';
+        buchstabenKennung.style.height = 200 + 'px';
+        buchstabenKennung.style.width = 140 + 'px';
+        buchstabenKennung.innerHTML = ofFuSchilder.getRandomLetter();
+        //Add Container for nummbers:
+        nummerContainer.style.position = 'relative';
+        nummerContainer.style.cssFloat = 'left';
+        nummerContainer.style.bottom = 300 + 'px';
+        nummerContainer.style.left = 0 + 'px' ;
+        nummerContainer.style.height = 300 + 'px';
+        nummerContainer.style.width = 225 + 'px';
+        nummerContainer.style.backgroundColor = 'white';
+        nummerContainer.style.borderRadius =  0 + ' ' + 3 + '%' + ' ' + 3 + '%' + ' ' + 0;
+        //Add number in nummerContainer:
+        nummer.style.position = 'relative';
+        nummer.style.cssFloat = 'left';
+        nummer.style.bottom = 50 + 'px';
+        nummer.style.left = 20 + 'px';
+        nummer.style.color = 'black' ;
+        nummer.style.fontFamily = 'sans-serif';
+        nummer.style.fontSize = 1000 + '%';
+        nummer.style.height = 200 + 'px';
+        nummer.style.width = 140 + 'px';
+        nummer.innerHTML = ofFuSchilder.getRandomNumber();
+        //Add autohausSchriftzug to SchwarzerRahmen:
+        autohausSchriftzug.style.position = 'relative';
+        autohausSchriftzug.style.cssFloat = 'left';
+        autohausSchriftzug.style.bottom = 287 + 'px';
+        autohausSchriftzug.style.height = 15 + 'px';
+        autohausSchriftzug.style.width = 700 + 'px';
+        autohausSchriftzug.style.color = 'yellow';
+        const autoheuser = ["Autohaus Utbremen Schmidt + Koch GmbH","Autohaus Keyssler GmbH & Co. KG","Autohaus Fritz GmbH","Woltmann Italo GmbH","Autohaus Neustadt Schmidt + Koch GmbH","AUTO DOMICIL BREMEN","Stern Autohaus Bremen","Autohaus Lemke GmbH","Dello Bremen am Flughafen","Carsburg Group","Autohaus Brandt Stuhr GmbH","Autohaus Schneider GmbH","Autohaus Weider + Sohn GmbH","Autohaus Reinsch GmbH","Autohaus Hinrichsen GmbH","Autohaus A&K Bremen","Auto-Müssemann GmbH","Autohaus Carsten Abbes","Autohaus Schmidtke Gmbh","Dello Bremen Georg-Bitter-Quartier","SIEGFRIED ISBRECHT Automobile...seit 1978! Kraftfahrzeug-Meisterbetrieb für alle Marken!","Becker & Vit - Automobile GmbH","DAT AUTOHUS AG","Autoservice Walter GmbH","Point S Kfz.-Meisterbetrieb Christoph Bremer","Autohaus Werner GmbH","Novo Automobile","Bobrink-Carstream GmbH Bremen Nord","Scar Automobile","Bobrink & Co. GmbH","Rivkin Automobile & Pflege GmbH und KFZ-Werkstatt"];
+        console.log(autoheuser.length);
+        autohausSchriftzug.innerHTML = autoheuser[ofFuSchilder.getAutohaus()];
+        autohausSchriftzug.style.textAlign = 'center';
+        //Add a Class that will output a new Object of shown sign to create a check{N}play-Prompt
     }
 }
 

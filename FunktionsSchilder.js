@@ -4,7 +4,7 @@ var schild_mit_ein_ziffer = 0;
 
 //Function for random number:
 module.exports.getRandomNumber = function randomNumber(){//between 1 and 9999
-    let minZufall = 1, maxZufall = 9999;
+    let minZufall = 1, maxZufall = 99;
     let zufaelligeZahl = Math.floor(Math.random() * (maxZufall - minZufall)) + minZufall;
     return zufaelligeZahl;
 }
@@ -117,6 +117,11 @@ module.exports.getCountryletter = function landZeichen(){
     return kuerzelLaenderEU01[zufaelligerBuchstabenWert];
 }
 
+module.exports.getAutohaus = function Autohaus(){
+    let min = 0, max = 31, random = 0;
+    random = Math.floor(Math.random() * (max - min)) + min;
+    return random;
+}
 
 
 //Function to check how often appear signs with only one number on it:
