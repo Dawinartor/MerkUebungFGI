@@ -15,6 +15,16 @@ const buchstabenKennungContainer = document.createElement("div");
 const buchstabenKennung = document.createElement("h1");
 const nummerContainer = document.createElement("div");
 const nummer = document.createElement("h1");
+const eingabeForm = document.getElementById("EingabeFORM");
+const eingabeFeld = document.getElementById("EingabeFELD");
+const eingabeButton = document.getElementById("EingabeButton");
+const errateneSchilder = document.createElement("div");
+var Count = 0;
+//To check da because I need a timer for three minutes:
+var myCounter = 0;
+const maxCounter = 29;//Equal to three minutes.
+//Array for my Signs:
+var gatheringCarsigns = [];
 //Append to document:
 document.body.append(schwarzerRahmen);
 schwarzerRahmen.appendChild(weißeInnenflaeche);
@@ -32,13 +42,21 @@ weißeInnenflaeche.appendChild(buchstabenKennungContainer);
 buchstabenKennungContainer.appendChild(buchstabenKennung);
 weißeInnenflaeche.appendChild(nummerContainer);
 nummerContainer.appendChild(nummer);
+document.body.appendChild(errateneSchilder);
+//Add clickFunction to my button:
+eingabeButton.addEventListener("click", checkInputWithSign);
+//Configure the Input-Form:
+//eingabeFeld.style.margin = 0;
 //The whole numbersign
 class nummernschild {
     constructor(){
         //Styling of black borderbackground sign:
         schwarzerRahmen.style.position = 'absolute';
-        schwarzerRahmen.style.top = 300 + 'px';
-        schwarzerRahmen.style.left = 600 + 'px'; //if sign will move -> every div will move too.
+        schwarzerRahmen.style.cssFloat = 'left';
+        var a = ((window.innerHeight / 2) - 250) + "px";
+        var b = ((window.innerWidth / 2) - 350) + "px";
+        schwarzerRahmen.style.top = a;
+        schwarzerRahmen.style.left = b; //if sign will move -> every div will move too.
         schwarzerRahmen.style.width = 800 + 'px';
         schwarzerRahmen.style.height = 350 + 'px';
         schwarzerRahmen.style.backgroundColor = 'black';
@@ -178,14 +196,75 @@ class nummernschild {
         autohausSchriftzug.style.color = 'yellow';
         autohausSchriftzug.style.textAlign = 'center';
         const autoheuser = ["Autohaus Utbremen Schmidt + Koch GmbH","Autohaus Keyssler GmbH & Co. KG","Autohaus Fritz GmbH","Woltmann Italo GmbH","Autohaus Neustadt Schmidt + Koch GmbH","AUTO DOMICIL BREMEN","Stern Autohaus Bremen","Autohaus Lemke GmbH","Dello Bremen am Flughafen","Carsburg Group","Autohaus Brandt Stuhr GmbH","Autohaus Schneider GmbH","Autohaus Weider + Sohn GmbH","Autohaus Reinsch GmbH","Autohaus Hinrichsen GmbH","Autohaus A&K Bremen","Auto-Müssemann GmbH","Autohaus Carsten Abbes","Autohaus Schmidtke Gmbh","Dello Bremen Georg-Bitter-Quartier","SIEGFRIED ISBRECHT Automobile...seit 1978! Kraftfahrzeug-Meisterbetrieb für alle Marken!","Becker & Vit - Automobile GmbH","DAT AUTOHUS AG","Autoservice Walter GmbH","Point S Kfz.-Meisterbetrieb Christoph Bremer","Autohaus Werner GmbH","Novo Automobile","Bobrink-Carstream GmbH Bremen Nord","Scar Automobile","Bobrink & Co. GmbH","Rivkin Automobile & Pflege GmbH und KFZ-Werkstatt"];
-        console.log(autoheuser.length);
         autohausSchriftzug.innerHTML = autoheuser[ofFuSchilder.getAutohaus()];
         //Add a Class that will output a new Object of shown sign to create a check{N}play-Prompt
+        var signAtMoment =  landBuchstabe.innerHTML + " " + stadtKennungBuchstabe.innerHTML + " " + buchstabenKennung.innerHTML + " " + nummer.innerHTML;
+        gatheringCarsigns.push(signAtMoment);
     }
+}
+
+    class AutoschilderErratenKontainer{
+        constructor(){
+            errateneSchilder.style.background = 'white';
+            errateneSchilder.style.width = window.innerWidth;
+            errateneSchilder.style.height = 400 + 'px';
+            errateneSchilder.style.top = 80 + 'px';
+        }
+    }
+
+    const foundSign = document.createElement("div");
+    errateneSchilder.appendChild(foundSign);
+
+    class DasErrateneSchild{
+        constructor(){
+            foundSign.innerHTML = eingabeFeld.value;
+        }
+    }
+
+function checkInputWithSign(){
+    console.log(eingabeFeld.value);
+    console.log(Count);
+    if (eingabeFeld.value == gatheringCarsigns[Count]){
+        console.log("This is right!");
+        const erraten = new DasErrateneSchild();
+        Count++;
+    } else {
+        console.log("Try it again!");
+    }
+}
+
+function secondsCounter(){
+    myCounter += 1;
+    return myCounter;
+}
+
+function showArrayWithSigns(){
+    console.log("Schild Nummer: " + myCounter + ", " + gatheringCarsigns[myCounter]);
 }
 
 function aktualisiereSchild(){
     let schild = new nummernschild(); 
 }
-var schild = new nummernschild();
-setInterval(aktualisiereSchild, 12000);
+
+function theGame(){
+    if (myCounter <= 3){
+        aktualisiereSchild();
+        showArrayWithSigns();
+        } else {
+        schwarzerRahmen.style.opacity = 0;
+        weißeInnenflaeche.style.opacity = 0;
+        blauesLandZeichen.style.opacity = 0;
+        landBuchstabe.style.opacity = 0;
+        stadtKennungBuchstabe.style.opacity = 0;
+        buchstabenKennung.style.opacity = 0;
+        nummer.style.opacity = 0;
+
+        const die_Anzeige = new AutoschilderErratenKontainer();
+        }
+}
+
+var schild = new nummernschild(); //To start the website with a sign.
+setInterval(theGame, 1000);
+setInterval(secondsCounter, 1000);
+
+

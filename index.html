@@ -9,7 +9,18 @@
     <link rel="stylesheet" type="text/css" media="screen" href="NummernSchild.css">
 </head>
 <body>
-    
+
+    <form id="EingabeFORM" >
+        <p id="EingabePARAGRAPH">Das Nummernschild: <input id="EingabeFELD" maxlength="8" placeholder="Beispiel: D A F 45" type="text" name="NummernSchild"></p>
+        <input id="EingabeButton" type="button" value="Checken"/>
+    </form>
+
 </body>
     <script src="bundle.js"></script>
+<!--     
+        Do not forget to bundle up your code into the command wit:
+        -> browserify FunktionsSchilder.js -o bundle.js
+                            OR
+        -> browserify schildAnpassen.js -o bundle.js
+-->
 </html>

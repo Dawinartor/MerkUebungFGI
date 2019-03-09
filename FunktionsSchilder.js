@@ -113,7 +113,6 @@ module.exports.getCountryletter = function landZeichen(){
     const kuerzelLaenderEU01 = ["D","B","F","I","L","M","A","H","E","S","L"];
     let euLandZero = 0, euLandLast = kuerzelLaenderEU01.length;
     let zufaelligerBuchstabenWert = Math.floor(Math.random() * (euLandLast - euLandZero)) + euLandZero;
-    console.log(kuerzelLaenderEU01[zufaelligerBuchstabenWert]);
     return kuerzelLaenderEU01[zufaelligerBuchstabenWert];
 }
 
@@ -133,7 +132,6 @@ function erstelleSchild(){
         console.error("Schild Nummer: " + schild_mit_ein_ziffer + "Das Schild -> " + nummernSchild);
     } else {
         schild_mit_ein_ziffer += 0;
-        console.log(nummernSchild);
     }
 }
 

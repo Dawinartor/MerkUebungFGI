@@ -1,0 +1,14 @@
+html{
+    background-color: aqua;
+}
+
+#EingabeFORM{
+    position: relative;
+    top: 750px;
+    left: 800px;
+}
+
+#EingabeButton{
+    width: 310px;
+    height: 50px;
+}
