@@ -369,6 +369,7 @@ function checkInputWithSign(){
     console.log(Count);
     if (eingabeFeld.value == gatheringCarsigns[Count]){
         console.log("This is right!");
+        document.innerHTML = "Thats it Bitch!";
         const erraten = new DasErrateneSchild();
         Count++;
     } else {
@@ -390,7 +391,7 @@ function aktualisiereSchild(){
 }
 
 function theGame(){
-    if (myCounter <= 3){
+    if (myCounter <= maxCounter){
         aktualisiereSchild();
         showArrayWithSigns();
         } else {
@@ -401,7 +402,6 @@ function theGame(){
         stadtKennungBuchstabe.style.opacity = 0;
         buchstabenKennung.style.opacity = 0;
         nummer.style.opacity = 0;
-
         const die_Anzeige = new AutoschilderErratenKontainer();
         }
 }
