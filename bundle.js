@@ -159,13 +159,15 @@ const buchstabenKennung = document.createElement("h1");
 const nummerContainer = document.createElement("div");
 const nummer = document.createElement("h1");
 const eingabeForm = document.getElementById("EingabeFORM");
-const eingabeFeld = document.getElementById("EingabeFELD");
+const eingabePARAGRAPH = document.getElementById("EingabePARAGRAPH");
+const eingabeNUMMER = document.getElementById("EingabeNUMMER");
+const eingabeSCHILD = document.getElementById("EingabeSCHILD");
 const eingabeButton = document.getElementById("EingabeButton");
 const errateneSchilder = document.createElement("div");
 var Count = 0;
 //To check da because I need a timer for three minutes:
 var myCounter = 0;
-const maxCounter = 29;//Equal to three minutes.
+const maxCounter = 240;//Equal to three minutes.
 //Array for my Signs:
 var gatheringCarsigns = [];
 //Append to document:
@@ -342,32 +344,24 @@ class nummernschild {
         autohausSchriftzug.innerHTML = autoheuser[ofFuSchilder.getAutohaus()];
         //Add a Class that will output a new Object of shown sign to create a check{N}play-Prompt
         var signAtMoment =  landBuchstabe.innerHTML + " " + stadtKennungBuchstabe.innerHTML + " " + buchstabenKennung.innerHTML + " " + nummer.innerHTML;
+        console.log(signAtMoment);
         gatheringCarsigns.push(signAtMoment);
     }
 }
 
-    class AutoschilderErratenKontainer{
-        constructor(){
-            errateneSchilder.style.background = 'white';
-            errateneSchilder.style.width = window.innerWidth;
-            errateneSchilder.style.height = 400 + 'px';
-            errateneSchilder.style.top = 80 + 'px';
-        }
-    }
 
-    const foundSign = document.createElement("div");
-    errateneSchilder.appendChild(foundSign);
+// -> 
 
-    class DasErrateneSchild{
-        constructor(){
-            foundSign.innerHTML = eingabeFeld.value;
-        }
-    }
+
+//Configurate my insert form:
+eingabeForm.style.position = 'relative';
+eingabeForm.style.top = window.innerWidth
+eingabeForm.style.left = window.innerHeight
 
 function checkInputWithSign(){
     console.log(eingabeFeld.value);
     console.log(Count);
-    if (eingabeFeld.value == gatheringCarsigns[Count]){
+    if ((eingabeSCHILD.value == gatheringCarsigns[Count])){
         console.log("This is right!");
         document.innerHTML = "Thats it Bitch!";
         const erraten = new DasErrateneSchild();
@@ -381,7 +375,7 @@ function secondsCounter(){
     myCounter += 1;
     return myCounter;
 }
-
+//Fix the bug with pushing signs to the array myCounter != creating carSigns
 function showArrayWithSigns(){
     console.log("Schild Nummer: " + myCounter + ", " + gatheringCarsigns[myCounter]);
 }
@@ -402,12 +396,11 @@ function theGame(){
         stadtKennungBuchstabe.style.opacity = 0;
         buchstabenKennung.style.opacity = 0;
         nummer.style.opacity = 0;
-        const die_Anzeige = new AutoschilderErratenKontainer();
         }
 }
 
 var schild = new nummernschild(); //To start the website with a sign.
-setInterval(theGame, 1000);
+setInterval(theGame, 12000);
 setInterval(secondsCounter, 1000);
 
 
